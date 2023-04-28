@@ -1,0 +1,34 @@
+﻿@page "/eventlist"
+@using FSPApi.Models;
+<h3>EventList</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Event</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Stay</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Event ev in list)
+        {
+            <tr>
+                <td>@ev.Name</td>
+                <td>@ev.Start.ToString("yyyy-MM-dd")</td>
+                <td>@ev.End.ToString("yyyy-MM-dd")</td>
+                <td>@((ev.Start - ev.End).ToString("yyyy-MM-dd"))</td>
+                <td><a href="eventteam">Команды</a></td>
+            </tr>
+        }
+        </tbody>
+</table>
+
+@code {
+    private Event[] list { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        list = new HttpClient().GetFromJsonAsync<Event[]>("https://localhost:7231/api/Events/list").Result;
+    }
+}

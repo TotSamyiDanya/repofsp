@@ -1,0 +1,30 @@
+﻿@page "/"
+@inject NavigationManager NavigationManager
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+@using FSPApi.Models;
+@using Newtonsoft.Json
+@using System.Text
+
+<PageTitle>Авторизация спортсмена</PageTitle>
+<EditForm Model="@_athlete" OnSubmit="@Authorize">
+    <h3>Авторизация спортсмена</h3>
+    <InputText class="form-control" placeholder="Введите логин" @bind-Value="_athlete.Login"></InputText>
+    <InputText class="form-control" type="password" placeholder="Введите пароль" @bind-Value="_athlete.Password"></InputText>
+    <button class="btn btn-primary" type="submit">Авторизоваться</button>
+    <a href="registration">Нет аккаунта? - Зарегестрируйтесь?</a>
+</EditForm>
+
+@code {
+    private Athlete _athlete = new();
+    private async Task Authorize()
+    {
+        Uri url = new("https://localhost:7231/api/User/authathlete");
+        HttpContent content = new StringContent(JsonConvert.SerializeObject(_athlete), Encoding.UTF8, "application/json");
+        HttpResponseMessage respose = await new HttpClient().PostAsync(url, content);
+        if (respose.IsSuccessStatusCode)
+        {
+            await localStorage.SetItemAsync("user", respose.Content.ReadAsStringAsync().Result);
+            NavigationManager.NavigateTo("userpage");
+        }
+    }
+}

@@ -1,0 +1,24 @@
+﻿@page "/userpage"
+@using FSPApi.Models;
+@using Newtonsoft.Json;
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+<h3>UserPage</h3>
+
+<PageTitle>Authorization</PageTitle>
+<div>
+    <p>Имя</p>
+    <p>Фамилия</p>
+</div>
+
+@code {
+    private Athlete _athelete = new();
+    protected override async Task OnInitializedAsync()
+    {
+        var cookieContent = await localStorage.GetItemAsync<string>("user");
+        if (cookieContent is not null)
+        {
+            Uri url = new("https://localhost:7034/api/Chat/Auth");
+            _athelete = await new HttpClient().GetFromJsonAsync<Athlete>($"https://localhost:7231/api/Athletes/athlete?id={cookieContent}");
+        }
+    }
+}

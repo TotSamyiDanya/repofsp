@@ -1,0 +1,32 @@
+﻿@page "/resultlist"
+@using FSPApi.Models;
+<h3>ResultList</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Event</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Stay</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Result result in list)
+        {
+            <tr>
+                <td>@result.Event.Name</td>
+                <td>@result.Athlete.Login</td>
+                <td>@result.Athlete.Rating</td>
+            </tr>
+        }
+        </tbody>
+</table>
+
+@code {
+    private Result[] list { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        list = new HttpClient().GetFromJsonAsync<Result[]>("https://localhost:7231/api/Results/list").Result;
+    }
+}

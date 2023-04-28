@@ -1,0 +1,36 @@
+﻿@page "/eventteam"
+@using FSPApi.Models;
+<h3>EventTeam</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Event</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Stay</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Team t in list)
+        {
+                <tr>
+                    <td>@t.Name</td>
+                    <td>@t.Coach.Login</td>
+                @foreach (Athlete a in t.Athletes)
+                {
+                    <td>a.Login</td>
+                    <td>a.Rating</td>
+                }
+                </tr>
+        }
+        </tbody>
+</table>
+
+@code {
+    private Team[] list { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        list = new HttpClient().GetFromJsonAsync<Team[]>("https://localhost:7231/api/Teams/eveteams").Result;
+    }
+}

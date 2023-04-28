@@ -62,34 +62,3 @@ a, .btn-link {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
-
-.content {
-    height: 90%;
-    font-size: 1.3vw;
-}
-form {
-    width: 50%;
-    position: relative;
-    left: 50%;
-    top: 30%;
-    transform: translate(-50%,-30%);
-    font-size: 1.3vw;
-}
-form * {
-    margin-bottom: 1vw;
-    display: block;
-    width: 100%;
-}
-
-form a {
-    display: block;
-    text-align: center;
-}
-
-form button {
-    font-size: 1.3vw;
-}
-
-.form-control {
-    font-size: 1.3vw;
-}

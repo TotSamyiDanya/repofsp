@@ -1,0 +1,27 @@
+﻿@page "/sport/teamlist"
+@using FSPApi.Models;
+<h3>Список команд</h3>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-sm">
+        <thead class="thead-dark">
+            <tr>
+                <th>Название</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Team t in list)
+            {
+                <tr>
+                    <td>@t.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@code {
+    Team[]? list { get; set; }
+    protected override async Task OnInitializedAsync() =>
+        list = new HttpClient().GetFromJsonAsync<Team[]>("https://localhost:7231/api/Team/list").Result;
+}

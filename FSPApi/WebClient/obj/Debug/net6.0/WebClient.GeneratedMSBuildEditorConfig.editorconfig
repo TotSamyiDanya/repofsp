@@ -20,16 +20,44 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/user/Desktop/IWantToDie/FSPApi/WebClient/Pages/ContestList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGVzdExpc3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/IWantToDie/FSPApi/WebClient/Pages/EventList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXZlbnRMaXN0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/user/Desktop/IWantToDie/FSPApi/WebClient/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/IWantToDie/FSPApi/WebClient/Pages/Registration.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0cmF0aW9uLnJhem9y
+[C:/Users/user/Desktop/IWantToDie/FSPApi/WebClient/Pages/Partners.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydG5lcnMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/IWantToDie/FSPApi/WebClient/Pages/UserPage.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclBhZ2UucmF6b3I=
+[C:/Users/user/Desktop/IWantToDie/FSPApi/WebClient/Pages/RContestList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUkNvbnRlc3RMaXN0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/IWantToDie/FSPApi/WebClient/Pages/Representatives.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVwcmVzZW50YXRpdmVzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/IWantToDie/FSPApi/WebClient/Pages/REventList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUkV2ZW50TGlzdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/IWantToDie/FSPApi/WebClient/Pages/RTeamList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUlRlYW1MaXN0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/IWantToDie/FSPApi/WebClient/Pages/Sport.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3BvcnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/IWantToDie/FSPApi/WebClient/Pages/TeamList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVhbUxpc3QucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/user/Desktop/IWantToDie/FSPApi/WebClient/Shared/SurveyPrompt.razor]

@@ -8,5 +8,6 @@
         public string Surname { get; set; }
         public string Patronymic { get; set; }
         public string Address { get; set; }
+        public virtual Athlete Athlete { get; set; }
     }
 }

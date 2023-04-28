@@ -1,0 +1,33 @@
+﻿@page "/sport/contestlist"
+@using FSPApi.Models;
+<h3>Рейтинговый список спортсменов</h3>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-sm">
+        <thead class="thead-dark">
+            <tr>
+                <th>Логин</th>
+                <th>Рейтинг</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Athlete a in list)
+            {
+                <tr>
+                    <td>@a.Login</td>
+                    <td>@a.Rating</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@code {
+    Athlete[]? list { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        list = new HttpClient().GetFromJsonAsync<Athlete[]>("https://localhost:7231/api/Athletes/list").Result;
+    }
+
+            
+}

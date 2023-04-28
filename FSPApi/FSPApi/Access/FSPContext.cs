@@ -1,5 +1,6 @@
 ﻿using FSPApi.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace FSPApi.Access
 {
@@ -15,7 +16,7 @@ namespace FSPApi.Access
         public DbSet<Representative> Representatives { get; set; }
         public FSPContext() => Database.EnsureCreated();
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
-            optionsBuilder.UseSqlServer(connectionString).UseLazyLoadingProxies();
+            optionsBuilder.UseSqlServer(connectionString).UseLazyLoadingProxies().ConfigureWarnings(w => w.Ignore(CoreEventId.LazyLoadOnDisposedContextWarning));
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Athlete>().HasKey(x => x.Id);

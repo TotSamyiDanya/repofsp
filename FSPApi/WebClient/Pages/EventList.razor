@@ -1,0 +1,35 @@
+﻿@page "/sport/eventlist"
+@using FSPApi.Models;
+<h3>Список событий</h3>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-sm">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Название</th>
+                    <th>Начало</th>
+                    <th>Конец</th>
+                    <th>Длительность</th>
+                    <th>Описание</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Event e in list)
+                {
+                    <tr>
+                        <td>@e.Name</td>
+                        <td>@e.Start</td>
+                        <td>@e.End</td>
+                        <td>@((e.End - e.Start).ToString())</td>
+                        <td>@e.Description</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+</div>
+
+@code {
+    Event[]? list { get; set; }
+    protected override async Task OnInitializedAsync() =>
+        list = new HttpClient().GetFromJsonAsync<Event[]>("https://localhost:7231/api/Events/list").Result;
+}

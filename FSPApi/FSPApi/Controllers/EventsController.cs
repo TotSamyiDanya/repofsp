@@ -1,4 +1,5 @@
 ﻿using FSPApi.Access;
+using FSPApi.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -30,6 +31,21 @@ namespace FSPApi.Controllers
                 return Ok(db.Events.ToArray());
             }
             catch
+            {
+                return NotFound();
+            }
+        }
+        [HttpPost][Route("addeve")]
+        public IActionResult AddEvent(Event eve)
+        {
+            try
+            {
+                using FSPContext db = new();
+                db.Add(eve);
+                db.SaveChanges();
+                return Ok();
+            }
+            catch (Exception ex)
             {
                 return NotFound();
             }
